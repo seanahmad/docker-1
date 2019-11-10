@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  jupyter:
+     build:
+       context: ""
+       dockerfile: ./Dockerfile
+       target: jupyter
+     #volumes:
+     #  - ./work:${WORK}
+     ports:
+        - ${PORT}:8888
+
+  jupyterlab:
+     build:
+       context: ""
+       dockerfile: ./Dockerfile
+       target: jupyterlab
+     #volumes:
+     #  - ./work:${WORK}
+     ports:
+        - ${PORT}:8888
