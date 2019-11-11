@@ -4,17 +4,6 @@ services:
      build:
        context: ""
        dockerfile: ./Dockerfile
-       target: jupyter
-     volumes:
-       - ./work:/home/jovyan/work
-     ports:
-        - 5555:8888
-
-  jupyterlab:
-     build:
-       context: ""
-       dockerfile: ./Dockerfile
-       target: jupyterlab
      volumes:
        - ./work:/home/jovyan/work
      ports:
