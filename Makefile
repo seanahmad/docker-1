@@ -1,5 +1,5 @@
 #!make
-PROJECT_VERSION := 0.3
+PROJECT_VERSION := 0.5
 
 SHELL := /bin/bash
 IMAGE := tschm/docker
@@ -31,7 +31,7 @@ jupyter: build
 	docker-compose up jupyter
 
 jupyterlab: buildlab
-	echo "http://localhost:5555"
+	echo "http://localhost:5555/lab"
 	docker-compose up jupyterlab
 
 tag:
