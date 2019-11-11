@@ -5,17 +5,17 @@ services:
        context: ""
        dockerfile: ./Dockerfile
        target: jupyter
-     #volumes:
-     #  - ./work:${WORK}
+     volumes:
+       - ./work:/home/jovyan/work
      ports:
-        - ${PORT}:8888
+        - 5555:8888
 
   jupyterlab:
      build:
        context: ""
        dockerfile: ./Dockerfile
        target: jupyterlab
-     #volumes:
-     #  - ./work:${WORK}
+     volumes:
+       - ./work:/home/jovyan/work
      ports:
-        - ${PORT}:8888
+        - 5555:8888

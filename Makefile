@@ -4,10 +4,6 @@ PROJECT_VERSION := 0.1
 SHELL := /bin/bash
 IMAGE := tschm/docker
 
-# needed to get the ${PORT} environment variable
-include .env
-export
-
 .PHONY: help build jupyter tag hub slides clean
 
 
@@ -31,11 +27,11 @@ buildlab:
 	docker-compose build jupyterlab
 
 jupyter: build
-	echo "http://localhost:${PORT}"
+	echo "http://localhost:5555"
 	docker-compose up jupyter
 
 jupyterlab: buildlab
-	echo "http://localhost:${PORT}"
+	echo "http://localhost:5555"
 	docker-compose up jupyterlab
 
 tag:
@@ -43,11 +39,8 @@ tag:
 	git push --tags
 
 hub: tag
-	docker build -f binder/Dockerfile --tag ${IMAGE}:latest --no-cache .
+	docker build --tag ${IMAGE}:latest --target=jupyterlab .
 	docker push ${IMAGE}:latest
 	docker tag ${IMAGE}:latest ${IMAGE}:${PROJECT_VERSION}
 	docker push ${IMAGE}:${PROJECT_VERSION}
 	docker rmi -f ${IMAGE}:${PROJECT_VERSION}
-
-clean:
-	docker-compose down -v --rmi all --remove-orphans
