@@ -1,5 +1,5 @@
 #!make
-PROJECT_VERSION := 0.2
+PROJECT_VERSION := 0.3
 
 SHELL := /bin/bash
 IMAGE := tschm/docker
@@ -38,9 +38,9 @@ tag:
 	git tag -a ${PROJECT_VERSION} -m "new tag"
 	git push --tags
 
-hub: tag
-	docker build --tag ${IMAGE}:latest --target=jupyterlab .
-	docker push ${IMAGE}:latest
-	docker tag ${IMAGE}:latest ${IMAGE}:${PROJECT_VERSION}
-	docker push ${IMAGE}:${PROJECT_VERSION}
-	docker rmi -f ${IMAGE}:${PROJECT_VERSION}
+#hub: tag
+#	docker build --tag ${IMAGE}:latest --target=jupyterlab .
+#	docker push ${IMAGE}:latest
+#	docker tag ${IMAGE}:latest ${IMAGE}:${PROJECT_VERSION}
+#	docker push ${IMAGE}:${PROJECT_VERSION}
+#	docker rmi -f ${IMAGE}:${PROJECT_VERSION}
