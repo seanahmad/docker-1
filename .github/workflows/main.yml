@@ -24,7 +24,7 @@ jobs:
       # Runs a single command using the runners shell
       #- name: test
       - run: echo ${{ secrets.DOCKER_USERNAME }}
-      - run: echo ${{ secrets.$DOCKER_PASSWORD }}
+      - run: echo ${{ secrets.DOCKER_PASSWORD }}
       - run: make build
 
 
