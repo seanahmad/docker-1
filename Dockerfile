@@ -1,4 +1,4 @@
-FROM jupyter/scipy-notebook:814ef10d64fb
+FROM jupyter/base-notebook:lab-2.1.3
 
 # File Author / Maintainer
 MAINTAINER Thomas Schmelzer "thomas.schmelzer@gmail.com"
@@ -6,12 +6,20 @@ MAINTAINER Thomas Schmelzer "thomas.schmelzer@gmail.com"
 # copy the config file
 COPY jupyter_notebook_config.py /etc/jupyter/jupyter_notebook_config.py
 
+USER root
 
-RUN conda install -y  -c conda-forge notebook=6.0.1 rise beakerx=1.4.1 jupyterlab && \
+# Install git
+RUN apt-get update && apt-get install -yq --no-install-recommends git \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Switch back to jovyan to avoid accidental container runs as root
+USER $NB_UID
+
+RUN conda install -y  -c conda-forge rise pandas=0.25.3 cvxpy=1.0.31 && \
     conda clean -afy && \
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
-    jupyter labextension install beakerx-jupyterlab && \
-    jupyter labextension install @jupyterlab/celltags && \
-    jupyter lab build
+    #jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
+    #jupyter labextension install beakerx-jupyterlab && \
+    #jupyter labextension install @jupyterlab/celltags && \
+    #jupyter lab build
 
 ENV WORK=/home/jovyan/work

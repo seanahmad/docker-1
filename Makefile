@@ -2,7 +2,6 @@
 PROJECT_VERSION := 0.6
 
 SHELL := /bin/bash
-IMAGE := tschm/docker
 
 .PHONY: help build jupyter tag slides clean
 
@@ -24,7 +23,7 @@ jupyter: build
 	echo "http://localhost:5555"
 	docker-compose up jupyter
 
-jupyterlab: buildlab
+jupyterlab: build
 	echo "http://localhost:5555/lab"
 	docker-compose up jupyterlab
 
