@@ -33,7 +33,7 @@ jobs:
       - uses: docker/build-push-action@v1
         with:
           username: "tschm"
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: "maffay78"
           repository: tschm/jupyter
           dockerfile: Dockerfile
           tag_with_ref: true
