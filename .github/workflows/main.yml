@@ -32,8 +32,8 @@ jobs:
 
       - uses: docker/build-push-action@v1
         with:
-          username: "tschm"
-          password: "71170e1d-11d3-4494-9445-536ef7e9f2dd"
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
           repository: tschm/jupyter
           dockerfile: Dockerfile
           tag_with_ref: true
@@ -41,7 +41,7 @@ jobs:
 
       - uses: docker/build-push-action@v1
         with:
-          username: "tschm"
+          username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: lobnek/jupyter
           dockerfile: Dockerfile
