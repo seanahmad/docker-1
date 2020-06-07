@@ -15,10 +15,10 @@ RUN apt-get update && apt-get install -yq --no-install-recommends git \
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
 
-RUN conda install -y  -c conda-forge rise pandas=0.25.3 cvxpy=1.0.31 && \
-    conda clean -afy && \
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager@2.0 && \
+RUN conda install -y  -c conda-forge rise pandas=0.25.3 cvxpy=1.0.31 python-cufflinks matplotlib && \
+    conda clean -afy # && \
+    #jupyter labextension install @jupyter-widgets/jupyterlab-manager@2.0 && \
     #jupyter labextension install beakerx-jupyterlab && \
-    jupyter lab build
+    #jupyter lab build
 
 ENV WORK=/home/jovyan/work
