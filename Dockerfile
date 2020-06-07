@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends git \
 USER $NB_UID
 
 RUN conda install -y  -c conda-forge rise pandas=0.25.3 cvxpy=1.0.31 && \
-    conda clean -afy && \
+    conda clean -afy
     #jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
     #jupyter labextension install beakerx-jupyterlab && \
     #jupyter labextension install @jupyterlab/celltags && \
