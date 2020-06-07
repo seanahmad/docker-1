@@ -25,7 +25,7 @@ jupyter: build
 
 jupyterlab: build
 	echo "http://localhost:5555/lab"
-	docker-compose up jupyterlab
+	docker-compose up jupyter
 
 tag:
 	git tag -a ${PROJECT_VERSION} -m "new tag"
