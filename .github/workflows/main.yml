@@ -25,6 +25,8 @@ jobs:
       #- name: test
       - run: echo ${{ secrets.DOCKER_USERNAME }}
       - run: echo ${{ secrets.DOCKER_PASSWORD }}
+      - run: echo ${{ secrets.DOCKER_HANS }}
+
       - run: make build
 
 
