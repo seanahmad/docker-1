@@ -1,5 +1,5 @@
 #!make
-PROJECT_VERSION := 0.8
+PROJECT_VERSION := 1.0.0
 
 SHELL := /bin/bash
 
