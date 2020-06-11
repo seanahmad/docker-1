@@ -5,5 +5,3 @@ c.NotebookApp.open_browser = False
 c.NotebookApp.token = ''
 c.NotebookApp.password = ''
 c.NotebookApp.notebook_dir = "/home/jovyan/work"
-c.LabBuildApp.minimize = False
-c.LabBuildApp.dev_build = False
