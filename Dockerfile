@@ -15,8 +15,9 @@ RUN apt-get update && apt-get install -yq --no-install-recommends git gcc  && ap
 USER $NB_UID
 
 RUN conda install -y  -c conda-forge rise pandas=0.25.3 cvxpy=1.0.31 beakerx=1.4.1 python-cufflinks matplotlib && \
-    conda clean -afy && \
-    jupyter labextension install beakerx-jupyterlab --no-build && \
-    jupyter lab build --minimize=False
+    conda clean -afy
+
+RUN jupyter labextension install beakerx-jupyterlab --no-build
+RUN jupyter lab build --minimize=False
 
 ENV WORK=/home/jovyan/work
