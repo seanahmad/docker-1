@@ -9,15 +9,14 @@ COPY jupyter_notebook_config.py /etc/jupyter/jupyter_notebook_config.py
 USER root
 
 # Install git
-RUN apt-get update && apt-get install -yq --no-install-recommends git \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -yq --no-install-recommends git gcc  && apt-get clean
 
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
 
 RUN conda install -y  -c conda-forge rise pandas=0.25.3 cvxpy=1.0.31 beakerx=1.4.1 python-cufflinks matplotlib && \
     conda clean -afy && \
-    jupyter labextension install beakerx-jupyterlab && \
-    jupyter lab build
+    jupyter labextension install beakerx-jupyterlab # && \
+    #jupyter lab build
 
 ENV WORK=/home/jovyan/work
