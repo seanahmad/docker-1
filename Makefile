@@ -1,9 +1,9 @@
 #!make
-PROJECT_VERSION := 1.0.0
+PROJECT_VERSION := 1.1.0
 
 SHELL := /bin/bash
 
-.PHONY: help build jupyter tag slides clean
+.PHONY: help build jupyter jupyterlab tag
 
 
 .DEFAULT: help
