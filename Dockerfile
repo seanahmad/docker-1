@@ -26,4 +26,5 @@ RUN conda install -y -c conda-forge beakerx=1.4.1 && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
     jupyter labextension install beakerx-jupyterlab --no-build
 
-RUN jupyter lab build --minimize=False --dev-build=False
+RUN jupyter lab build
+# --minimize=False --dev-build=False
