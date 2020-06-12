@@ -20,12 +20,20 @@ build:
 	docker-compose build jupyter
 
 jupyter: build
-	echo "http://localhost:5555"
+	echo "http://localhost:8888"
 	docker-compose up jupyter
 
 jupyterlab: build
-	echo "http://localhost:5555/lab"
+	echo "http://localhost:8888/lab"
 	docker-compose up jupyter
+
+beakerx: build
+	echo "http://localhost:8888"
+	docker-compose up beakerx
+
+beakerxlab: build
+	echo "http://localhost:8888/lab"
+	docker-compose up beakerx
 
 tag:
 	git tag -a ${PROJECT_VERSION} -m "new tag"
