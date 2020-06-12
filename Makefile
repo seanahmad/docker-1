@@ -19,9 +19,6 @@ help:
 build:
 	docker-compose build jupyter
 
-#buildbeakerx:
-#	docker-compose build beakerx
-
 jupyter: build
 	echo "http://localhost:8888"
 	docker-compose up jupyter
@@ -29,14 +26,6 @@ jupyter: build
 jupyterlab: build
 	echo "http://localhost:8888/lab"
 	docker-compose up jupyter
-
-#beakerx: build
-#	echo "http://localhost:8888"
-#	docker-compose up beakerx
-
-#beakerxlab: build
-#	echo "http://localhost:8888/lab"
-#	docker-compose up beakerx
 
 tag:
 	git tag -a ${PROJECT_VERSION} -m "new tag"
