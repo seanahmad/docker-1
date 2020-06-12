@@ -20,7 +20,7 @@ build:
 	docker-compose build jupyter
 
 jupyter: build
-	echo "http://localhost:8888"
+	echo "http://localhost:8888/tree"
 	docker-compose up jupyter
 
 jupyterlab: build
