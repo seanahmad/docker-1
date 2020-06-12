@@ -20,30 +20,15 @@ RUN conda install -y  \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
-#RUN git clone https://github.com/twosigma/beakerx.git /tmp/beakerx && \
-#    pip install /tmp/beakerx/beakerx && \
-#    beakerx install
-
 ENV WORK=/home/jovyan/work
 
+# beakerx won't work in the Lab but should work in the notebooks. Eliminate all beakerx from presentations
 # please see https://github.com/twosigma/beakerx/issues/8264
 
-#FROM builder as beakerx
-
-# install beakerx
-#RUN conda install -y -c conda-forge beakerx=1.4.1 && \
-#    conda clean --all -f -y && \
-#    fix-permissions $CONDA_DIR && \
-#    fix-permissions /home/$NB_USER
-
-#&& \
-#    jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
-#    jupyter labextension install beakerx-jupyterlab --no-build
-
-#RUN jupyter lab build && \
-#    jupyter lab clean -y && \
-#    npm cache clean --force && \
-#    rm -rf /home/$NB_USER/.cache/yarn && \
-#    rm -rf /home/$NB_USER/.node-gyp
-
-# --minimize=False --dev-build=False
+# Basic JupyterLab renderer support
+RUN jupyter labextension install jupyterlab-plotly@4.8.1 --no-build && \
+    jupyter lab build && \
+    jupyter lab clean -y && \
+    npm cache clean --force && \
+    rm -rf /home/$NB_USER/.cache/yarn && \
+    rm -rf /home/$NB_USER/.node-gyp
