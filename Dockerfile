@@ -12,6 +12,7 @@ RUN conda install -y  -c conda-forge \
         cvxpy=1.0.31 \
         python-cufflinks && \
         beakerx=1.4.1 && \
+    conda install -y -c plotly plotly_express && \
     conda clean --all -f -y && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
