@@ -11,7 +11,7 @@ RUN conda install -y  -c conda-forge \
         pandas=0.25.3 \
         cvxpy=1.0.31 \
         python-cufflinks && \
-        conda-forge beakerx=1.4.1 && \
+        beakerx=1.4.1 && \
     conda clean --all -f -y && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
