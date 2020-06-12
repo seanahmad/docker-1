@@ -34,7 +34,6 @@ jobs:
           dockerfile: Dockerfile
           target: builder
           tag_with_ref: true
-          push: false
 
       - uses: docker/build-push-action@v1.1.0
         with:
@@ -44,4 +43,3 @@ jobs:
           dockerfile: Dockerfile
           target: beakerx
           tag_with_ref: true
-          push: false

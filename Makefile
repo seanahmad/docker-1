@@ -19,6 +19,9 @@ help:
 build:
 	docker-compose build jupyter
 
+buildbeakerx:
+	docker-compose build beakerx
+
 jupyter: build
 	echo "http://localhost:8888"
 	docker-compose up jupyter
