@@ -1,9 +1,6 @@
 #FROM jupyter/base-notebook:lab-2.1.3 as builder
 FROM jupyter/minimal-notebook:6d42503c684f as builder
 
-# File Author / Maintainer
-MAINTAINER Thomas Schmelzer "thomas.schmelzer@gmail.com"
-
 # copy the config file
 COPY jupyter_notebook_config.py /etc/jupyter/jupyter_notebook_config.py
 
@@ -54,7 +51,7 @@ RUN pip install --no-cache-dir \
 #    fix-permissions /home/$NB_USER
 
 #USER jovyan
-ENV WORK=/home/jovyan/work
+#ENV WORK=/home/jovyan/work
 
 # beakerx won't work in the Lab but should work in the notebooks. Eliminate all beakerx from presentations
 # please see https://github.com/twosigma/beakerx/issues/8264
