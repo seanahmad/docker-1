@@ -1,4 +1,5 @@
 # Docker
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tschm/docker/master?filepath=work)
 
 I am using this project to build the image I use for all my presentations, e.g. tschm/jupyter. 
 
