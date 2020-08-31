@@ -1,5 +1,5 @@
 #FROM jupyter/base-notebook:lab-2.1.3 as builder
-FROM jupyter/minimal-notebook:76402a27fd13 as builder
+FROM jupyter/minimal-notebook:6d42503c684f as builder
 
 # File Author / Maintainer
 MAINTAINER Thomas Schmelzer "thomas.schmelzer@gmail.com"
