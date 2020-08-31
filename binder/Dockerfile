@@ -2,7 +2,7 @@
 FROM jupyter/minimal-notebook:6d42503c684f as builder
 
 # copy the config file
-COPY jupyter_notebook_config.py /etc/jupyter/jupyter_notebook_config.py
+COPY ./binder/jupyter_notebook_config.py /etc/jupyter/jupyter_notebook_config.py
 
 #RUN conda config --add channels conda-forge && \
 #    conda config --add channels plotly && \

@@ -3,7 +3,7 @@ services:
   jupyter:
      build:
        context: ""
-       dockerfile: ./Dockerfile
+       dockerfile: binder/Dockerfile
        target: builder
      volumes:
        - ./work:/home/jovyan/work
