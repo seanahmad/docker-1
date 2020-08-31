@@ -27,7 +27,8 @@ RUN pip install --no-cache-dir \
         cufflinks==0.17.3 \
         plotly_express==0.4.1 \
         matplotlib==3.3.1 \
-        scipy==1.5.2
+        scipy==1.5.2 && \
+    fix-permissions /home/$NB_USER
 
 #USER jovyan
 
@@ -57,9 +58,9 @@ RUN pip install --no-cache-dir \
 # please see https://github.com/twosigma/beakerx/issues/8264
 
 # Basic JupyterLab renderer support
-RUN jupyter labextension install jupyterlab-plotly@4.8.1 --no-build && \
-    jupyter lab build && \
-    jupyter lab clean -y && \
-    npm cache clean --force && \
-    rm -rf /home/$NB_USER/.cache/yarn && \
-    rm -rf /home/$NB_USER/.node-gyp
+#RUN jupyter labextension install jupyterlab-plotly@4.8.1 --no-build && \
+#    jupyter lab build && \
+#    jupyter lab clean -y && \
+#    npm cache clean --force && \
+#    rm -rf /home/$NB_USER/.cache/yarn && \
+#    rm -rf /home/$NB_USER/.node-gyp
