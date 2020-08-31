@@ -21,10 +21,10 @@ COPY ./binder/jupyter_notebook_config.py /etc/jupyter/jupyter_notebook_config.py
 
 RUN pip install --no-cache-dir \
         pandas==1.0.5 \
-        cvxpy==1.1.2 \
-        beakerx==2.0.0 \
-        beakerx-tabledisplay==2.0.0 \
-        cufflinks==0.17.3 \
+        cvxpy==1.1.5 \
+        #beakerx==2.0.0 \
+        #beakerx-tabledisplay==2.0.0 \
+        #cufflinks==0.17.3 \
         plotly_express==0.4.1 \
         matplotlib==3.3.1 \
         scipy==1.5.2 && \
@@ -58,8 +58,10 @@ RUN pip install --no-cache-dir \
 # please see https://github.com/twosigma/beakerx/issues/8264
 
 # Basic JupyterLab renderer support
-#RUN jupyter labextension install jupyterlab-plotly@4.8.1 --no-build && \
+RUN jupyter labextension install jupyterlab-plotly@4.9.0
+#--no-build && \
 #    jupyter lab build && \
+#
 #    jupyter lab clean -y && \
 #    npm cache clean --force && \
 #    rm -rf /home/$NB_USER/.cache/yarn && \
